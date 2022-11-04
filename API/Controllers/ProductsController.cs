@@ -8,23 +8,23 @@ namespace API.Controllers
     [Route("api/[controller]")]
     public class ProductsController : ControllerBase
     {
-        private IProductRepository repo;
+        private IProductRepository _repo;
 
         public ProductsController(IProductRepository repo)
         {
-            this.repo = repo;
+            _repo = repo;
         }
 
         [HttpGet]
         public async Task<ActionResult<List<Product>>> GetProducts()
         {
-            var products = await this.repo.GetProductsAsync();
+            var products = await _repo.GetProductsAsync();
             return Ok(products);
         }
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> Getproduct(int id)
         {
-            var product= await this.repo.GetProductByIdAync(id);
+            var product= await _repo.GetProductByIdAync(id);
             return product;
         }
     }

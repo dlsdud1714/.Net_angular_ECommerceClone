@@ -10,20 +10,20 @@ namespace Infrastructure.Data
 {
     public class ProductRepository : IProductRepository
     {
-        private readonly StoreContext context;
+        private readonly StoreContext _context;
         public ProductRepository(StoreContext context)
         {
-            this.context = context;
+            _context = context;
         }
 
         public async Task<Product> GetProductByIdAync(int id)
         {
-            return await this.context.Products.FindAsync(id);
+            return await _context.Products.FindAsync(id);
         }
 
         public async Task<IReadOnlyList<Product>> GetProductsAsync()
         {
-            return await this.context.Products.ToListAsync();
+            return await _context.Products.ToListAsync();
         }
     }
 }
