@@ -57,3 +57,6 @@
 /Users/InyoungPark/Github/DotNet_angular_ECommerceClone/API/bin/Debug/net6.0/Infrastructure.dll
 /Users/InyoungPark/Github/DotNet_angular_ECommerceClone/API/bin/Debug/net6.0/Infrastructure.pdb
 /Users/InyoungPark/Github/DotNet_angular_ECommerceClone/API/bin/Debug/net6.0/Core.pdb
+/Users/InyoungPark/Github/DotNet_angular_ECommerceClone/API/bin/Debug/net6.0/AutoMapper.dll
+/Users/InyoungPark/Github/DotNet_angular_ECommerceClone/API/bin/Debug/net6.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/Users/InyoungPark/Github/DotNet_angular_ECommerceClone/API/bin/Debug/net6.0/API.staticwebassets.runtime.json

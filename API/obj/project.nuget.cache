@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "z48h3spTtNZiyTbgN9RWgH6/rUo0slZhmjSBPJLUTBf2aPbBe4eZDqa8h0VDbnNEYTBhEXQPtnZrOtRImisgOQ==",
+  "dgSpecHash": "IcPGnhDklXB7mRw1peyO3/r5FAVF8p+aPKU4zwQI/vh/ecMKuxOk5caFhURHnAib9eECleHzF2+2TJb/uRcuIA==",
   "success": true,
   "projectFilePath": "/Users/InyoungPark/Github/DotNet_angular_ECommerceClone/API/API.csproj",
   "expectedPackageFiles": [
+    "/Users/InyoungPark/.nuget/packages/automapper/12.0.0/automapper.12.0.0.nupkg.sha512",
+    "/Users/InyoungPark/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.0/automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "/Users/InyoungPark/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
+    "/Users/InyoungPark/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/Users/InyoungPark/.nuget/packages/microsoft.data.sqlite.core/6.0.10/microsoft.data.sqlite.core.6.0.10.nupkg.sha512",
     "/Users/InyoungPark/.nuget/packages/microsoft.entityframeworkcore/6.0.10/microsoft.entityframeworkcore.6.0.10.nupkg.sha512",
     "/Users/InyoungPark/.nuget/packages/microsoft.entityframeworkcore.abstractions/6.0.10/microsoft.entityframeworkcore.abstractions.6.0.10.nupkg.sha512",
