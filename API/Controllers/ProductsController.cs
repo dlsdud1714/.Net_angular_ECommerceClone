@@ -1,5 +1,6 @@
 using API.Dtos;
 using API.Error;
+using API.Helpers;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
@@ -30,13 +31,18 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts(string sort, int? brandId, int?typeId)
+        public async Task<ActionResult<Pagination<ProductToReturnDto>>> GetProducts(
+            [FromQuery] ProductSpecParams productParams)
         {
-            var spec = new ProductsWithTypesAndBrandsSpecification(sort, brandId, typeId);
+            var spec = new ProductsWithTypesAndBrandsSpecification(productParams);
+            var countSpec = new ProductWithFiltersForCountSpecification(productParams);
+            var totalItems = await _ProductRepo.CountAsync(countSpec);
             var products = await _ProductRepo.ListAsync(spec);
             var productsDto = _mapper
             .Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products);
-            return Ok(productsDto);
+            var paginatedData = new Pagination<ProductToReturnDto>(productParams.PageIndex,
+            productParams.PageSize, totalItems, productsDto);
+            return Ok(paginatedData);
         }
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -45,7 +51,7 @@ namespace API.Controllers
         {
             var spec = new ProductsWithTypesAndBrandsSpecification(id);
             var product = await _ProductRepo.GetEntityWithSpec(spec);
-            if (product==null) return NotFound(new ApiResponse(404));
+            if (product == null) return NotFound(new ApiResponse(404));
             var productDto = _mapper.Map<Product, ProductToReturnDto>(product);
             return productDto;
         }
