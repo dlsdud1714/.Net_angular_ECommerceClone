@@ -1,0 +1,17 @@
+<header>
+    <span *ngIf="count&&count > 0 "
+      >Showing
+      <strong>
+        {{ this.pageSize * (pageNumber - 1) + 1 }} - 
+        {{ (this.pageSize * pageNumber)>count?
+          count
+          :(this.pageSize * pageNumber)
+          
+         }}
+      </strong>
+      of
+      <strong>{{ count }}</strong>
+      results</span
+    >
+    <span *ngIf="count ===0">There are <strong>0</strong> results for this filter</span>
+  </header>
