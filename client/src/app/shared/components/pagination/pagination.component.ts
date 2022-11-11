@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./pagination.component.scss']
 })
 export class PaginationComponent implements OnInit {
-  @Input() count:number;
+  @Input() count: number;
   @Input() pageSize: number;
   @Output() pageChanged = new EventEmitter<number>();
 
@@ -14,8 +14,11 @@ export class PaginationComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onPageChanged($event:any){
-    this.pageChanged.emit($event.page);
+  onPageChanged($event: any) {
+    if ($event.page) {
+
+      this.pageChanged.emit($event.page);
+    }
   }
 
 }

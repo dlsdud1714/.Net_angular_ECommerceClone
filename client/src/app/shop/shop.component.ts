@@ -16,7 +16,7 @@ export class ShopComponent implements OnInit {
   brands: IBrand[];
   productTypes: IProductType[];
   shopParams = new ShopParams();
-  count : number;
+  count: number;
   sortOptions =
     [{ name: "Alphabetically", option: "name" },
     { name: "Price: high to low", option: "priceDesc" },
@@ -31,10 +31,12 @@ export class ShopComponent implements OnInit {
   }
   onBrandSelected(brandId: number) {
     this.shopParams.brandId = brandId
+    this.shopParams.pageNumber = 1;
     this.getProducts();
   }
   onTypeSelected(typeId: number) {
     this.shopParams.typeId = typeId;
+    this.shopParams.pageNumber = 1;
     this.getProducts();
   }
   onSortSelected(sort: string) {
@@ -42,26 +44,28 @@ export class ShopComponent implements OnInit {
     console.log("sort", sort)
     this.getProducts();
   }
-  onPageSelected(event:any){
-    this.shopParams.pageNumber = event;
-    this.getProducts();
+  onPageSelected(event: any) {
+    if (this.shopParams.pageNumber !== event) {
+      this.shopParams.pageNumber = event;
+      this.getProducts();
+    }
   }
-  onSearch(){
+  onSearch() {
     this.shopParams.search = this.searchRef.nativeElement.value;
     console.log("search on", this.shopParams.search)
     this.getProducts();
   }
-  onReset(){
-    this.searchRef.nativeElement.value= "";
-    this.shopParams= new ShopParams();
+  onReset() {
+    this.searchRef.nativeElement.value = "";
+    this.shopParams = new ShopParams();
     this.getProducts();
   }
   getProducts() {
     this.ShopService.getProducts(this.shopParams)
-    .subscribe(res => {
-      this.products = res.data;
-      this.count= res.count;
-    }, err => console.log(err))
+      .subscribe(res => {
+        this.products = res.data;
+        this.count = res.count;
+      }, err => console.log(err))
   }
   getBrands() {
     this.ShopService.getBrands().subscribe(res => {
@@ -73,6 +77,6 @@ export class ShopComponent implements OnInit {
       this.productTypes = [{ id: 0, name: "All" }, ...res];
     }, err => console.log(err))
   }
-  
+
 
 }
