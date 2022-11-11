@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { HomeModule } from './home/home.module';
 import { ShopModule } from './shop/shop.module';
 import { CoreModule } from './core/core.module';

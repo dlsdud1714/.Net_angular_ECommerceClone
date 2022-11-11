@@ -1,10 +1,10 @@
 <div class="d-flex flex-column flex-md-row align-items-center justify-content-between p-3 px-md-3 bg-white
  mb-3 border-bottom shadow-sm fixed-top">
-   <img src="/assets/images/logo.png" style="max-height: 70 px;" alt="logo"/>
+   <img src="/assets/images/logo.png" class="logo" style="max-height: 70 px;" alt="logo" [routerLink]="['/']"/>
     <nav class=" mt-2 mt-md-0 ms-md-3 text-uppercase" style="font-size: larger;">
-      <a class="me-3 py-2 text-dark text-decoration-none" href="#">Home</a>
-      <a class="me-3 py-2 text-dark text-decoration-none" href="#">Shop</a>
-      <a class="me-3 py-2 text-dark text-decoration-none" href="#">Contact</a>
+      <a class="me-3 py-2 " [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" >Home</a>
+      <a class="me-3 py-2 " [routerLink]="['/shop']" routerLinkActive="active">Shop</a>
+      <a class="me-3 py-2 " href="#">Contact</a>
     
     </nav>
     <div class="d-flex align-items-center">
