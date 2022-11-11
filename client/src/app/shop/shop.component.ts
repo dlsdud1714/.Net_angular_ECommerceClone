@@ -42,7 +42,7 @@ export class ShopComponent implements OnInit {
     this.getProducts();
   }
   onPageSelected(event:any){
-    this.shopParams.pageNumber = event.page;
+    this.shopParams.pageNumber = event;
     this.getProducts();
   }
   getProducts() {

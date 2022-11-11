@@ -60,17 +60,11 @@
         </div>
       </div>
       <div class="d-flex justify-content-center">
-        <pagination *ngIf="count>0"
-          [boundaryLinks]="true"
-          [totalItems]="this.count"
-          (pageChanged)="onPageSelected($event)"
-          [itemsPerPage]="this.shopParams.pageSize"
-          previousText="&lsaquo;"
-          nextText="&rsaquo;"
-          firstText="&laquo;"
-          lastText="&raquo;"
-        >
-        </pagination>
+        <app-pagination
+        [pageSize]="shopParams.pageSize"
+        [count]="count"
+        (pageChanged)="onPageSelected($event)">
+        </app-pagination>
       </div>
     </section>
   </div>
