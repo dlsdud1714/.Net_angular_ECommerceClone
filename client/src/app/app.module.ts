@@ -20,7 +20,6 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     HttpClientModule,
     CoreModule,
-    ShopModule,
     HomeModule
   ],
   providers: [],

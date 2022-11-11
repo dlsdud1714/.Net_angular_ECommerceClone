@@ -1,5 +1,4 @@
-import { RouterModule } from '@angular/router';
-import { HomeComponent } from './../home/home.component';
+import { ShopRoutingModule } from './shop-routing.module';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -18,8 +17,8 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule
+    ShopRoutingModule
   ],
-  exports:[ShopComponent, ProductDetailsComponent]
+  exports:[ShopComponent]
 })
 export class ShopModule { }
