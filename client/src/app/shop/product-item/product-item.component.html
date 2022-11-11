@@ -3,12 +3,11 @@
     src="{{ product.pictureUrl }}"
     class="img-fluid bg-info"
     alt="{{ product.name }}"
-    routerLink="/shop/:{{ product.id }}"
   />
 
   <div class="card-body d-flex flex-column">
-    <a href="">
-      <h6 class="text-uppercase">{{ product.name }}</h6>
+    <a routerLink="/shop/{{product.id}}">
+      <h6 class="text-uppercase">{{product.name}}</h6>
     </a>
     <span class="mb-2">{{ product.price | currency }}</span>
 
@@ -19,7 +18,7 @@
       ></button>
       <button
         type="button"
-        routerLink="/shop/{{ product.id }}"
+        routerLink="/shop/{{product.id}}"
         class="btn btn-outline-secondary"
       >
         View
