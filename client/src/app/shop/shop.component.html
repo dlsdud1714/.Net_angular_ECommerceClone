@@ -43,14 +43,15 @@
         [pageNumber]="this.shopParams.pageNumber"
         [pageSize]="this.shopParams.pageSize"></app-page-header>
         <div class="d-flex w-50 mt-2 align-items-center">
-          <input
+          <input #search
+          (keyup.enter)="onSearch()"
             class="form-control me-2"
             style="width: 300px; height: 38px"
             placeholder="Search"
             type="text"
           />
-          <button class="btn btn-outline-primary me-2">Search</button>
-          <button class="btn btn-outline-success me-2 my-2">Reset</button>
+          <button class="btn btn-outline-primary me-2" (click)="onSearch()">Search</button>
+          <button class="btn btn-outline-success me-2 my-2" (click)="onReset()">Reset</button>
         </div>
       </div>
 
