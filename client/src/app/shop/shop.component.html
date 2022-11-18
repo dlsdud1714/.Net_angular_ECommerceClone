@@ -1,9 +1,11 @@
-<div class="container">
+<div class="container mt-3">
   <div class="row">
     <section class="col-3">
-      <h5 class="text-warning ms-3">Sort</h5>
+      <ng-componen *ngIf="productTypes && brands">
+      
+      <h5 class="text-warning ms-3 mt-4 mb-3">Sort</h5>
       <select
-        class="custom-select mb-3"
+        class="custom-select mb-4"
         (change)="onSortSelected($event.target.value)"
       >
         <option *ngFor="let sort of sortOptions" [value]="sort.option">
@@ -34,6 +36,8 @@
           {{ type.name }}
         </li>
       </ul>
+            
+    </ng-componen>
     </section>
 
     <section class="col-9">
@@ -41,8 +45,9 @@
         <app-page-header
         [count]="this.count"
         [pageNumber]="this.shopParams.pageNumber"
-        [pageSize]="this.shopParams.pageSize"></app-page-header>
-        <div class="d-flex w-50 mt-2 align-items-center">
+        [pageSize]="this.shopParams.pageSize">
+      </app-page-header>
+        <div class="d-flex w-50 mt-2 align-items-center" *ngIf="products">
           <input #search
           (keyup.enter)="onSearch()"
             class="form-control me-2"
