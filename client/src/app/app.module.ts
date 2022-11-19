@@ -1,3 +1,4 @@
+import { BasketModule } from './basket/basket.module';
 import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { RouterModule } from '@angular/router';
@@ -12,6 +13,7 @@ import{HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { BasketComponent } from './basket/basket.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     HttpClientModule,
     CoreModule,
     HomeModule,
+    BasketModule,
     NgxSpinnerModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass:ErrorInterceptor, multi:true },
