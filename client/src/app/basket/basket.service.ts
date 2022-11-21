@@ -20,13 +20,14 @@ export class BasketService {
     return this.http.get(this.baseUrl + '/basket?id=' + id).pipe(
       map((basket: IBasket) => {
         this.basketSource.next(basket);
+        console.log("Getting current basket", this.getCurrentBasket())
       })
     )
   }
   setBasket(basket: IBasket) {
     return this.http.post(this.baseUrl + "/basket", basket).subscribe((res: IBasket) => {
       this.basketSource.next(res);
-      console.log("basket", basket)
+      console.log("Setting current basket", this.getCurrentBasket())
     },
       error => {
         console.log(error);
@@ -35,7 +36,6 @@ export class BasketService {
   }
 
   getCurrentBasket(){
-    console.log(this.basketSource);
     return this.basketSource.value
   }
   addItemToBasket(item:Iproduct, quantity=1){
