@@ -58,11 +58,13 @@
                     <td class="align-middle">
                         <div class="d-flex justify-content-start align-items-center">
                             <i
+                              (click)="decrementItemQuantity(item)"
                               class="fa fa-minus-circle text-warning me-2"
                               style="cursor: pointer; font-size: 2em"
                             ></i>
                             <span class="font-weight-bold"style="font-size:1.5em;">{{item.quantity}}</span>
                             <i
+                              (click)="incrementItemQuantity(item)"
                               class="fa fa-plus-circle text-warning mx-2"
                               style="cursor: pointer; font-size: 2em"
                             ></i>
@@ -72,13 +74,23 @@
                         <strong>{{item.price*item.quantity|currency}}</strong>
                     </td>
                     <td class="align-middle text-center">
-                        <a class="text-danger"><i class="fa fa-trash" style="font-size: 2em;"></i></a>
+                        <a (click)="removeItem(item)"class="text-danger"><i class="fa fa-trash" style="font-size: 2em;"></i></a>
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
+        </div>
+        <div class="row">
+            <div class="col-6 offset-6">
+                <app-order-totals></app-order-totals>
+                <button routerLink="/checkout" class="btn btn-outline-primary py-2 btn-block">
+                    Proceed to checkout
+                </button>
+               
+
+            </div>
         </div>
       </div>
     </div>

@@ -1,3 +1,4 @@
+import { CheckoutModule } from './checkout/checkout.module';
 import { BasketModule } from './basket/basket.module';
 import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
@@ -27,6 +28,7 @@ import { BasketComponent } from './basket/basket.component';
     CoreModule,
     HomeModule,
     BasketModule,
+    CheckoutModule,
     NgxSpinnerModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass:ErrorInterceptor, multi:true },
