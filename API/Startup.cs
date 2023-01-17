@@ -2,6 +2,7 @@ using API.Extensions;
 using API.Helpers;
 using API.Middleware;
 using Infrastructure.Data;
+using Infrastructure.Identity;
 using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
 
@@ -22,13 +23,17 @@ namespace API
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddControllers();
             services.AddDbContext<StoreContext>(x => x.UseSqlite(this.config.GetConnectionString("DefaultConnetion")));
-            
-            services.AddSingleton<IConnectionMultiplexer>(c=>{
+            services.AddDbContext<AppIdentityDbContext>(x=>{
+                x.UseSqlite(this.config.GetConnectionString("IdentityConnection"));
+            });
+            services.AddSingleton<IConnectionMultiplexer>(c =>
+            {
                 var configuration = ConfigurationOptions.Parse(this.config.GetConnectionString("Redis"),
                 true);
                 return ConnectionMultiplexer.Connect(configuration);
             });
             services.AddApplicationServices();
+            services.AddIdentityServices();
             services.AddSwaggerDocumentation();
             services.AddCors(opt =>
             {
