@@ -1,10 +1,11 @@
 using API.Error;
 using Infrastructure.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    public class BuggyController: BaseApiController
+    public class BuggyController : BaseApiController
     {
         private readonly StoreContext _context;
 
@@ -14,30 +15,40 @@ namespace API.Controllers
         }
 
         [HttpGet("notfound")]
-        public ActionResult GetNotFoundRequest(){
+        public ActionResult GetNotFoundRequest()
+        {
             //id 42 is not existed.
-            var thing= _context.Products.Find(42);
-            if(thing==null){
+            var thing = _context.Products.Find(42);
+            if (thing == null)
+            {
                 return NotFound(new ApiResponse(404));
             }
             return Ok();
         }
-         [HttpGet("serverError")]
-        public ActionResult GetServerError(){
-            var thing= _context.Products.Find(42);
+        [HttpGet("serverError")]
+        public ActionResult GetServerError()
+        {
+            var thing = _context.Products.Find(42);
             //thing is null. cannot make a string
             var thinToReturn = thing.ToString();
             return Ok();
         }
-         [HttpGet("badRequest")]
-        public ActionResult GetBadRequest(){
+        [HttpGet("badRequest")]
+        public ActionResult GetBadRequest()
+        {
             return BadRequest(new ApiResponse(400));
         }
-         [HttpGet("badRequest/{id}")]
-        public ActionResult GetNotRoundRequest(int id){
+        [HttpGet("badRequest/{id}")]
+        public ActionResult GetNotRoundRequest(int id)
+        {
             return Ok();
         }
-        
-        
+
+        [HttpGet("testauth")]
+        [Authorize]
+        public ActionResult<string> GetSecretText()
+        {
+            return "secret stuff";
+        }
     }
 }
