@@ -1,3 +1,4 @@
+import { AccountModule } from './account/account.module';
 import { CheckoutModule } from './checkout/checkout.module';
 import { BasketModule } from './basket/basket.module';
 import { LoadingInterceptor } from './core/interceptors/loading.interceptor';
@@ -27,6 +28,7 @@ import { BasketComponent } from './basket/basket.component';
     HttpClientModule,
     CoreModule,
     HomeModule,
+    AccountModule,
     BasketModule,
     CheckoutModule,
     NgxSpinnerModule
